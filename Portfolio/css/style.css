@@ -1,0 +1,59 @@
+ol {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color: #ffffff;
+  position: relative;
+  padding: 40px;
+}
+
+table {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color: #ffffff;
+  position: relative;
+}
+
+.photo-gallery {
+  isplay: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-left: 40px;
+}
+
+.photo-gallery img {
+  width: 300px;
+  height: 200px;
+}
+
+.video-gallery {
+  margin-left: 40px;
+}
+
+.parent-container {
+  position: relative;
+}
+
+.image-container {
+  width: 100%;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+}
+
+.title-text {
+  position: absolute;
+  padding: 40px;
+  color: #ffffff;
+  font-size: 3.5em;
+}
+
+.video-container {
+  margin-left: 20px;
+  margin-top: 20px;
+}
