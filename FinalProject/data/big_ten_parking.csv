@@ -1,0 +1,47 @@
+"","university","common_name","state","public_private","conference","avg_resident_permit_price","avg_commuter_permit_price","avg_faculty_permit_price","average_ticket_price","mode_ticket_price","first_ticket_late_fee","extras","links","x14","x15","x16","resident_price_deviation","commuter_price_deviation","commuter_vs_resident","avg_student_permit_price","employee_price_deviation","faculty_vs_student"
+"1","Rutgers University","Rutgers","NJ","Public","Big Ten",400,338,228.31,68.75,20,"5.00",NA,"https://ipo.rutgers.edu/parking/permits/calculator
+https://ipo.rutgers.edu/parking/permits/students
+https://ipo.rutgers.edu/parking/enforcement",NA,NA,NA,-168.172777777778,-95.3072222222222,62,369,-436.827222222222,140.69
+"2","University of Washington","UW","WA","Public","Big Ten",1246.95,1246.95,1107.6,105,40,"25.00","Actively trying to raise late fee and ticket prices to match the City of Seattle.","https://transportation.uw.edu/park/student-employee/student
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://transportation.uw.edu/files/media/ProposedParkingCitationFineSchedule.pdf",NA,NA,NA,678.777222222222,813.642777777778,0,1246.95,442.462777777778,139.35
+"3","Northwestern University","Northwestern","IL","Private","Big Ten",540,540,528,77.94,32.5,NA,NA,"https://www.northwestern.edu/transportation-parking/evanston-parking/permits/student.html 
+https://www.northwestern.edu/transportation-parking/evanston-parking/permits/faculty-staff.html 
+https://www.northwestern.edu/transportation-parking/evanston-parking/tickets/violations-fees.html",NA,NA,NA,-28.1727777777778,106.692777777778,0,540,-137.137222222222,12
+"4","University of Nebraska","Nebraska","NE","Public","Big Ten",405,405,432,82,50,"Tows","Does not include second and third offense tickets. Violation will be reduced to $7.00 if, within 30 calendar days of issuance, proof is presented to an employee at UNL Parking and Transit Services (during window hours), that a valid permit is registered to that vehicle and the vehicle was parked in an authorized location.
+Failure to pay any portion of your parking tickets will result in your license plate number being placed on the impoundment list for towing. Unpaid parking tickets may also result in a student's grades or registration being held.","https://parking.unl.edu/facultystaff-city-campus-parking/ 
+https://parking.unl.edu/commuter-city-campus-parking/ 
+https://parking.unl.edu/resident-city-campus-parking/
+https://parking.unl.edu/rules-regulations/violations-penalties/",NA,NA,NA,-163.172777777778,-28.3072222222222,0,405,-233.137222222222,-27
+"5","University of Oregon","Oregon","OR","Public","Big Ten",360,415.5,415.5,106,45,"Doubles",NA,"https://transportation.uoregon.edu/fines-and-fees
+https://transportation.uoregon.edu/residents 
+https://transportation.uoregon.edu/zones",NA,NA,NA,-208.172777777778,-17.8072222222222,-55.5,387.75,-249.637222222222,-27.75
+"6","Purdue University","Purdue","IN","Public","Big Ten",150,100,175,52.81,35,"10.00",NA,"https://www.purdue.edu/parking/permits/west-lafayette/students/index.html
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.purdue.edu/parking/documents/ParkingRegs.pdf",NA,NA,NA,-418.172777777778,-333.307222222222,50,125,-490.137222222222,-50
+"7","University of Wisconsin","Wisconsin","WI","Public","Big Ten",761,761,882.5,95.94,40,"10.00",NA,"https://transportation.wisc.edu/rates-and-policies/rates/#py26-rates
+https://transportation.wisc.edu/rates-and-policies/rates/#citations-fines",NA,NA,NA,192.827222222222,327.692777777778,0,761,217.362777777778,-121.5
+"8","University of Southern California","USC","CA","Private","Big Ten",900,900,1055.45,145.86,65,NA,"Late fee not listed.","https://transnet.usc.edu/index.php/parking-rates/
+https://transnet.usc.edu/index.php/parking-violations/",NA,NA,NA,331.827222222222,466.692777777778,0,900,390.312777777778,-155.45
+"9","Indiana University","Indiana","IN","Public","Big Ten",240.72,177.48,378.23,56.32,50,"Varies","Note that faculty and staff parking is the minimum price. 
+Faculty and staff parking varies by salary.
+Ticket late fee is a 1.5% increase of the ticket","https://parking.indiana.edu/citations/citation-fines.html
+https://parking.indiana.edu/permits/index.html",NA,NA,NA,-327.452777777778,-255.827222222222,63.24,209.1,-286.907222222222,-169.13
+"10","University of Maryland","UMD","MD","Public","Big Ten",736,380,730,163.24,85,"45.00","Note that faculty and staff parking is the minimum price. 
+Faculty and staff parking varies by salary.","https://transportation.umd.edu/parking/students/fees-and-permit-types
+https://transportation.umd.edu/parking/faculty-staff/fees-and-permit-types 
+https://transportation.umd.edu/citations-reviews",NA,NA,"Find averages for when there are multiple options, unless one option seems the most obvious. If payments are monthly, do them for 9 months.",167.827222222222,-53.3072222222222,356,558,64.8627777777778,-172
+"11","University of California, Los Angeles","UCLA","CA","Public","Big Ten",915.53,648.06,990.33,175.88,87,"Doubles",NA,"https://transportation.ucla.edu/campus-parking/ucla-parking-rates-and-fees
+https://transportation.ucla.edu/campus-parking/parking-enforcement",NA,NA,NA,347.357222222222,214.752777777778,267.47,781.795,325.192777777778,-208.535
+"12","Michigan State University","Michigan State","MI","Public","Big Ten",320.58,107,441.04,58.33,40,"10.00",NA,"https://parking.msu.edu/parking-violations/violation-policies
+https://parking.msu.edu/students/permits",NA,NA,NA,-247.592777777778,-326.307222222222,213.58,213.79,-224.097222222222,-227.25
+"13","Ohio State University","Ohio State","OH","Public","Big Ten",732,467.21,840.86,155,57.5,"Tows",NA,"chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://osu.campusparc.com/media/an1bidtx/py26-rate-table0731final.pdf
+https://osu.campusparc.com/pay-a-citation/violation-policies/",NA,NA,NA,163.827222222222,33.9027777777778,264.79,599.605,175.722777777778,-241.255
+"14","University of Iowa","Iowa","IA","Public","Big Ten",498,216,656.57,45.44,30,"25.00","Student athletes are granted reduced parking permit costs.","https://admissions.uiowa.edu/finances/billing-payment-options 
+https://transportation.uiowa.edu/parking-rates#accordion-item-18456-2",NA,NA,NA,-70.1727777777778,-217.307222222222,282,357,-8.5672222222222,-299.57
+"15","Pennsylvania State University","Penn State","PA","Public","Big Ten",611.33,146,715.5,65.67,100,"3.00","Students receive an account hold for late ticket payments while professors are charged a $3 fee. Mode for ticket prices is $100 because of bumped event citation fees. Refer to the average of non-event fees.","https://transportation.psu.edu/future-rates
+https://transportation.psu.edu/parking-tickets",NA,NA,NA,43.1572222222222,-287.307222222222,465.33,378.665,50.3627777777778,-336.835
+"16","University of Minnesota","Minnesota","MN","Public","Big Ten",667,667,1047,NA,NA,NA,"No site listed for tickets.","https://pts.umn.edu/park-and-drive/general-information/rates",NA,NA,NA,98.8272222222222,233.692777777778,0,667,381.862777777778,-380
+"17","University of Michigan","Michigan","MI","Public","Big Ten",600,141.33,784.25,47.29,40,"Varies","Faculty parking can vary greatly. If tickets are paid by the next business day, the cost is often lower. This was factored into both the average and mode ticket price.","https://ltp.umich.edu/parking/permit-parking/annual-costs/ 
+https://ltp.umich.edu/2020/01/07/parking-citation-rates-to-increase-starting-on-wednesday-january-1-2020/",NA,NA,NA,31.8272222222222,-291.977222222222,458.67,370.665,119.112777777778,-413.585
+"18","University of Illinois","Illinois","IL","Public","Big Ten",143,143,564.33,57.62,50,"10.00","Note that faculty and staff parking is the minimum price. 
+Faculty and staff parking varies by salary.","https://parking.illinois.edu/rates
+https://parking.illinois.edu/citation-codes-and-fines",NA,NA,NA,-425.172777777778,-290.307222222222,0,143,-100.807222222222,-421.33

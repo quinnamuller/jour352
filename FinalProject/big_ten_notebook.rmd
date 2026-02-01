@@ -1,0 +1,207 @@
+---
+title: "big_ten_notebook"
+author: "Quinn Muller"
+date: "2026-01-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Turn off scientific notation
+options(scipen=999)
+```
+
+
+```{r}
+# Load libraries and dataframe
+
+library(tidyverse)
+library(janitor)
+
+big_ten_parking <- read_csv('data/parking.csv') %>% 
+  clean_names()
+```
+#Clean data
+
+```{r}
+#get rid of commas, dollar signs
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    avg_resident_permit_price = str_replace_all(avg_resident_permit_price, "[$,]", ""),
+    avg_resident_permit_price = as.numeric(avg_resident_permit_price),
+    avg_commuter_permit_price = str_replace_all(avg_commuter_permit_price, "[$,]", ""),
+    avg_commuter_permit_price = as.numeric(avg_commuter_permit_price),
+    avg_faculty_permit_price = str_replace_all(avg_faculty_permit_price, "[$,]", ""),
+    avg_faculty_permit_price = as.numeric(avg_faculty_permit_price),
+    average_ticket_price = str_replace_all(average_ticket_price, "[$,]", ""),
+    average_ticket_price = as.numeric(average_ticket_price),
+    mode_ticket_price = str_replace_all(mode_ticket_price, "[$,]", ""),
+    mode_ticket_price = as.numeric(mode_ticket_price),
+    first_ticket_late_fee = str_replace_all(first_ticket_late_fee, "[$,]", "")    )                    
+```
+
+```{r}
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+      first_ticket_late_fee = if_else(
+          str_detect(first_ticket_late_fee, "tow"),
+          "Tows",
+          first_ticket_late_fee  
+        ))
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+      extras = if_else(
+          str_detect(extras, "I love you."),
+          NA_character_,
+          extras),
+      extras = if_else(
+          str_detect(extras, "I hate you."),
+          NA_character_,
+          extras)
+        )
+```
+
+#Looking at Average Resident Permit Prices
+
+```{r}
+#highest and lowest
+
+big_ten_parking %>% 
+  arrange(desc(avg_resident_permit_price))
+
+#UW tops the list for the most expensive resident parking permit with an annual cost of $1246.95. It is followed by two other West Coast schools, UCLA and USC. Maryland lands at 5 out of the 18 Big Ten schools. The University of Illinois bottoms out the list with a resident permit that costs just $143. I spoke with a student at Illinois who said that although the university offers a $900 annual permit, it's very rare that students pay for it.
+
+#A student living on campus at Purdue could buy 8 parking spaces there and have almost $50 leftover for the price of one resident space at the University of Washington.
+
+```
+
+```{r}
+#averages, difference from average resident parking permit price
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    resident_price_deviation = avg_resident_permit_price - mean(avg_resident_permit_price)
+  ) %>% 
+  arrange(desc(resident_price_deviation))
+
+#Northwestern and UMich set the tone for the average resident price while Illinois, and the West Coast schools (save for Oregon which falls toward the bottom of the list) remain obvious outliers. Maryland's price is $167 more than the average, a difference that is greater than the cost of a resident permit at both Purdue and Illinois.
+```
+
+
+#Looking at the Average Commuter Permit Price
+
+```{r}
+#highest and lowest
+
+big_ten_parking %>% 
+  arrange(desc(avg_commuter_permit_price))
+
+#UW tops the list again for the most expensive commuter parking permit with an annual cost of $1246.95. It's important to note that while UW has a separate student commuter plan, it is the same cos as the student resident plan. It is followed USC and Wisconsin as UCLA's commuter plan drops the cost by a bit more than $300. Maryland drops down to #10, middling out the 18 Big Ten schools. A lot of the Midwestern schools bottom out the list with commuter permits that cost under $200 annually. Purdue's is the lowest at just $100 a year. 
+```
+
+```{r}
+#averages, difference from average commuter parking permit price
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    commuter_price_deviation = avg_commuter_permit_price - mean(avg_commuter_permit_price)
+  ) %>% 
+  arrange(desc(commuter_price_deviation))
+
+#Oregon, Ohio State and Nebraska set the tone for the average commuter permit price while Washington, USC and Purdue remain obvious outliers. Maryland's commuter price is around $50 less than the average, which is positive in comparison to the resident price.
+```
+
+```{r}
+#difference between commuter and resident prices
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    commuter_vs_resident = avg_resident_permit_price - avg_commuter_permit_price
+  ) %>% 
+  arrange(desc(commuter_vs_resident))
+
+#Penn State, Michigan and Maryland top the list with the biggest ($350+) discounts for commuter students in the Big Ten conference. Oregon is the only university to have a more expensive plan for commuters, by $50. Seven schools, including the aforementioned UW, USC, and Minnesota, either do not have any differences between their commuter plan and resident plan, or have a student plan that applies to both sets of students. 
+```
+
+
+#Overall student parking permit prices
+
+```{r}
+#create new column for overall student parking prices
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    avg_student_permit_price = (avg_resident_permit_price + avg_commuter_permit_price)/2
+  ) %>% 
+  arrange(desc(avg_student_permit_price))
+
+#UW tops the list for the most expensive overall student parking permit with an annual cost of $1246.95. It is again followed by UCLA and USC. Maryland lands at #7 and is dragged down by its comparatively lower commuter plan. Purdue University and the University of Illinois bottom out the list with permits under $150 annually.
+```
+
+
+
+#Looking at faculty prices
+
+```{r}
+#highest and lowest
+
+big_ten_parking %>% 
+  arrange(desc(avg_faculty_permit_price))
+
+#UW tops the list yet again for the most expensive faculty parking permit with an annual cost of $1107.60. It's one of three plans that are, on average, over $1,000 (USC and Minnesota). Maryland drops down to #8, middling out the 18 Big Ten schools. Only two schools' faculty and staff parking plans fall under $300 annually: Purdue and Rutgers. A lot of schools have commuter plans that apply to students and employees, while other universities have separate faculty and staff plans that correspond with their salaries.
+```
+
+
+```{r}
+#averages, difference from average employee parking permit price
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    employee_price_deviation = avg_faculty_permit_price - mean(avg_faculty_permit_price)
+  ) %>% 
+  arrange(desc(employee_price_deviation))
+
+#UW, USC and Minnesota top the list for the biggest outliers with student parking with UW's faculty spaces being almost $450 more than the average. The University of Iowa sets the tone for the average faculty permit price. Maryland's faculty price is on $64 more than the average Big Ten employee parking permit, falling at 8th place. Maryland uses a salary-based parking system. Rutgers and Purdue again fall significantly below average for faculty permit pricing.
+```
+
+
+```{r}
+#compare with overall student prices
+
+big_ten_parking <- big_ten_parking %>% 
+  mutate(
+    faculty_vs_student = avg_student_permit_price - avg_faculty_permit_price
+    ) %>% 
+  arrange(desc(faculty_vs_student))
+
+#UMich and Illinois have their faculty pay, on average, just over $400 more than students. Rutgers and UW are the only Big Ten schools that, on average, have their students significantly (~$100) paying more than university employees. Maryland employees pay around $175 more than students.
+```
+
+
+#Looking at ticket pricing
+
+```{r}
+#highest and lowest (avg AND mode ticket price)
+
+big_ten_parking %>% 
+  arrange(desc(average_ticket_price))
+
+#UCLA, Maryland and Ohio State top the list for the most expensive tickets with average ticket cost greater than $150. However, this may be misrepresentative of their most common tickets, as violations related to disability permit parking are often significantly more expensive. For context, UCLA issues an $895 is you misuse a disability permit -- for a first-time offense. USC also charges $999 for use of a forged permit (USC lands at #4). For some schools that charge for more expensive infractions, none of which reach the heights set by Big Ten's California contributors, are a result of a second- or third- offense price hike. These tickets definitely skew their averages up as they are the two most expensive tickets you can get in the Big Ten. Most Big Ten schools will charge a few hundred dollars for either of these offenses. Because of this potential misrepresentation, we'll take a look at the most common ticket prices.
+
+
+big_ten_parking %>% 
+  arrange(desc(mode_ticket_price))
+
+#We see that Maryland ($85) and UCLA ($87) both drop two places, still remaining near the top. Ohio State ($96) moves up one and Penn State pulls into first from #11 for the average ticket cost. This is largely because of event fees. Penn State charges significantly more for parking violations during football games and other events with most citations jumping up to $100, making it the most common ticket price. It's important to note that while some schools may have more tickets that are $100, they may give out significantly more $30 tickets for infractions that happen more often. You would figure that campus police or transportation services are giving out more tickets for parking in the wrong lot or space, or expired meters. I can attest to that: shout out the five tickets that DOTS gave me over the summer that were nearly identical. These tickets often cost significantly less than more serious infractions like parking in a fire lane or blocking a fire hydrant.
+
+
+#looking at late ticket fees
+
+#Big Ten universities also vary in the consequences they enact when people don't pay their tickets. Maryland has the greatest static charge for a late fee at a whopping $45, which is the same as the average cost of a ticket at the University of Iowa. Contrarily, UCLA and Oregon's tickets double in price if they're not paid in time. Considering they're both in the top five for average ticket prices, you could end up paying a ton of money if you sit on a parking ticket, almost $2000 at UCLA. While some schools will hold student accounts from registering for classes if they have an unpaid ticket, Ohio State and Nebraska take it to the next level. If you don't pay a ticket on time at these universities your car is added to a list of impoundment. If you don't pay your ticket, they tow your car. On top of the ticket, you then have to pay for the tow and to get your car back.
+```
+
+```{r}
+write.csv(big_ten_parking, file = "big_ten_parking.csv", row.names = TRUE)
+```
